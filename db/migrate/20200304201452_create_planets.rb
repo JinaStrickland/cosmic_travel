@@ -4,7 +4,7 @@ class CreatePlanets < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :distance_from_earth
       t.string :nearest_star
-
+      
       t.timestamps
     end
   end

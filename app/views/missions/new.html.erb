@@ -1,0 +1,23 @@
+<h1> Create New Mission </h1>
+
+<ul>
+<% if @mission.errors.any? %>
+        <% @mission.errors.full_messages.each do |error| %>
+       <li> <%= error %> </li>
+    <% end %>
+<% end %>
+</ul>
+
+<%= form_for @mission do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %> <br>
+    <%= f.label :scientist_id %>
+    <%= f.collection_select(:scientist_id, Scientist.all, :id, :name, { include_blank: "Choose a Scientist" }) %><br>
+    <%= f.label :planet_id %>
+    <%= f.collection_select(:planet_id, Planet.all, :id, :name, { include_blank: "Choose a Planet"}) %><br>
+    <%= f.submit "Submit" %>
+<% end %>
+<br>
+<br>
+<%= link_to "Back to Missions", missions_path %>
+
